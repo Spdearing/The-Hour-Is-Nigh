@@ -13,6 +13,8 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawnLocation = this.gameObject.transform.position;
+        blobEnemy = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint1");
         SpawnBlobs();
     }
 
@@ -24,7 +26,8 @@ public class EnemySpawnerLowLevel : MonoBehaviour
 
     private void SpawnBlobs()
     {
-        Blob blob = new Blob("Bob", 25, 25, 2);
+        Enemy blob = new Enemy("Blob", 25, 25, 2);
         GameObject blobEnemyInstance = Instantiate(blobEnemy, spawnLocation, Quaternion.identity);
+        blobEnemyInstance.name = blob.EnemyName;
     }
 }
