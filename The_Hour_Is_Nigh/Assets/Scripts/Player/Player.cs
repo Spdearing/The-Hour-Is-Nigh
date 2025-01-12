@@ -21,7 +21,7 @@ public class Player
 
     public void PlayerExperienceIncrease(int enemyHealth)
     {
-        this.playerExperience += enemyHealth/10;
+        this.playerExperience += Mathf.RoundToInt(enemyHealth/10);
         Debug.Log("Payer gained" + enemyHealth/10 + " experience");
     }
 
