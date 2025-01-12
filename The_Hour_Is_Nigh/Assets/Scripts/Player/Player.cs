@@ -6,24 +6,22 @@ public class Player
 {
     private string playerName;
     private int playerExperience;
+    private int level;
     private int levelUp;
     private int playerHealth;
     private int playerMaxHealth;
 
-    public Player(string playerName, int playerExperience,int levelUp, int playerHealth, int playerMaxHealth)
+    public Player(string playerName, int playerExperience,int level, int levelUp, int playerHealth, int playerMaxHealth)
     {
         this.playerName = playerName;
         this.playerExperience = playerExperience;
+        this.level = level;
         this.levelUp = levelUp;
         this.playerHealth = playerHealth;
         this.playerMaxHealth = playerMaxHealth;
     }
 
-    public void PlayerExperienceIncrease(int enemyHealth)
-    {
-        this.playerExperience += Mathf.RoundToInt(enemyHealth/10);
-        Debug.Log("Payer gained" + enemyHealth/10 + " experience");
-    }
+
 
     public string PlayerName
     {
@@ -46,6 +44,18 @@ public class Player
         set
         {
             playerExperience = value;
+        }
+    }
+
+    public int Level
+    {
+        get
+        {
+            return level;
+        }
+        set
+        {
+            level = value;
         }
     }
 

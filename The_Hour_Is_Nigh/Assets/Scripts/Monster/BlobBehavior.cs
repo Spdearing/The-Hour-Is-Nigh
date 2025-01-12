@@ -6,6 +6,8 @@ public class BlobBehavior : MonoBehaviour
 {
 
     [SerializeField] private int blobHealth;
+    [SerializeField] private int blobMaxHealth;
+    [SerializeField] private PlayerStats playerStats;
 
 
     // Start is called before the first frame update
@@ -15,6 +17,8 @@ public class BlobBehavior : MonoBehaviour
         gameObject.name = blob.EnemyName;
         gameObject.tag = "Enemy";
         blobHealth = blob.EnemyHealth;
+        blobMaxHealth = blob.EnemyMaxHealth;
+        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -28,6 +32,7 @@ public class BlobBehavior : MonoBehaviour
         if (blobHealth <= 0)
         {
             Destroy(gameObject);
+            playerStats.PlayerExperienceIncrease(blobMaxHealth);
         }
         else
         {
