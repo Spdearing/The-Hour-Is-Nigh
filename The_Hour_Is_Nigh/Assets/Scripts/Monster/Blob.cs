@@ -19,10 +19,7 @@ public class Enemy
     }
 
 
-    public void TakeDamage(int playerAttackDamage)
-    {
-        this.enemyHealth -= playerAttackDamage;
-    }
+
 
     public void EnemyDies()
     {
@@ -48,7 +45,7 @@ public class Enemy
     {
         get
         {
-            return EnemyHealth;
+            return enemyHealth;
         }
         set
         {
