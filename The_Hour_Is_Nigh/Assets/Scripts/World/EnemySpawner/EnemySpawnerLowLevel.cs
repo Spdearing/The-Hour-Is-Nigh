@@ -7,6 +7,9 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     [Header("Enemy")]
     [SerializeField] private GameObject blobEnemy;
 
+    [Header("Blob Behavior Script")]
+    [SerializeField] private BlobBehavior blobBehavior;
+
     [Header("Enemy Spawn Location")]
     [SerializeField] private Vector3 spawnLocation;
 
@@ -15,6 +18,7 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     {
         spawnLocation = this.gameObject.transform.position;
         blobEnemy = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint1");
+        blobBehavior = Resources.Load<BlobBehavior>("Scripts\\Monster");
         SpawnBlobs();
     }
 
@@ -26,8 +30,9 @@ public class EnemySpawnerLowLevel : MonoBehaviour
 
     private void SpawnBlobs()
     {
-        Enemy blob = new Enemy("Blob", 25, 25, 2);
+        
         GameObject blobEnemyInstance = Instantiate(blobEnemy, spawnLocation, Quaternion.identity);
-        blobEnemyInstance.name = blob.EnemyName;
+        blobEnemyInstance.AddComponent<BlobBehavior>();
+        
     }
 }
