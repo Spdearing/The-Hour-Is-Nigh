@@ -18,9 +18,6 @@ public class Enemy
         this.enemyAttackDamage = enemyAttackDamage;
     }
 
-
-
-
     public void EnemyDies()
     {
         if (enemyHealth <= 0)

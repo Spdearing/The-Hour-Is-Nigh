@@ -13,6 +13,8 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     [Header("Enemy Spawn Location")]
     [SerializeField] private Vector3 spawnLocation;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +27,10 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void SpawnBlobs()
+    public void SpawnBlobs()
     {
         
         GameObject blobEnemyInstance = Instantiate(blobEnemy, spawnLocation, Quaternion.identity);
