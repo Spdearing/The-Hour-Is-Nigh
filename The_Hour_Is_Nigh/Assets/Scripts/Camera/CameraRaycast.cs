@@ -9,6 +9,7 @@ public class CameraRaycast : MonoBehaviour
 
     [Header("Reference To The Enemy")]
     [SerializeField] private BlobBehavior referenceToBlob;
+    [SerializeField] private EnemyHealthManager enemyHealthManager;
 
     [Header("Floats")]
     [SerializeField] private float interactDistance;
@@ -41,7 +42,9 @@ public class CameraRaycast : MonoBehaviour
                     if (objectHit.tag == "Enemy")
                     {
                         referenceToBlob = objectHit.GetComponent<BlobBehavior>();
+                        enemyHealthManager = objectHit.GetComponent<EnemyHealthManager>();
                         referenceToBlob.TakeDamage(10);
+                        enemyHealthManager.UpdateEnemyHealth(referenceToBlob.EnemyHealth);
                         referenceToBlob.BlobDies();
                         
                     }

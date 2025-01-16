@@ -35,6 +35,6 @@ public class EnemySpawnerLowLevel : MonoBehaviour
         
         GameObject blobEnemyInstance = Instantiate(blobEnemy, spawnLocation, Quaternion.identity);
         blobEnemyInstance.AddComponent<BlobBehavior>();
-        
+        blobEnemyInstance.AddComponent<EnemyHealthManager>();
     }
 }

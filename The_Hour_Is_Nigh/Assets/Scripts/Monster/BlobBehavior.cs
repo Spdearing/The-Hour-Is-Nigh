@@ -66,4 +66,28 @@ public class BlobBehavior : MonoBehaviour
     {
         blobHealth -= playerAttackDamage;
     }
+
+    public int EnemyHealth
+    {
+        get
+        {
+            return blobHealth;
+        }
+        set
+        {
+            blobHealth = value;
+        }
+    }
+
+    public int EnemyMaxHealth
+    {
+        get
+        {
+            return blobMaxHealth;
+        }
+        set
+        {
+            blobMaxHealth = value;
+        }
+    }
 }
