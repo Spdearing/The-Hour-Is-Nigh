@@ -12,6 +12,7 @@ public class BlobBehavior : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private EnemySpawnerLowLevel blobSpawner;
+    [SerializeField] private EnemyHealthManager enemyHealthManager;
 
     [Header("Bools")]
     [SerializeField] private bool blobDied;
@@ -28,6 +29,7 @@ public class BlobBehavior : MonoBehaviour
         blobMaxHealth = blob.EnemyMaxHealth;
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         blobSpawner = GameObject.Find("SpawnLocation").GetComponent<EnemySpawnerLowLevel>();
+        enemyHealthManager = this.gameObject.GetComponent<EnemyHealthManager>();
         blobDied = false;
         
     }
@@ -65,6 +67,7 @@ public class BlobBehavior : MonoBehaviour
     public void TakeDamage(int playerAttackDamage)
     {
         blobHealth -= playerAttackDamage;
+        enemyHealthManager.UpdateEnemyHealth(blobHealth);
     }
 
     public int EnemyHealth

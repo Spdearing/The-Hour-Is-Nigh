@@ -18,7 +18,7 @@ public class CameraRaycast : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -43,13 +43,24 @@ public class CameraRaycast : MonoBehaviour
                     {
                         referenceToBlob = objectHit.GetComponent<BlobBehavior>();
                         enemyHealthManager = objectHit.GetComponent<EnemyHealthManager>();
-                        referenceToBlob.TakeDamage(10);
-                        enemyHealthManager.UpdateEnemyHealth(referenceToBlob.EnemyHealth);
+                        referenceToBlob.TakeDamage(5);
                         referenceToBlob.BlobDies();
-                        
+
                     }
                 }
             }
+        }
+    }
+
+    public BlobBehavior ReferenceToBlob
+    {
+        get
+        {
+            return referenceToBlob;
+        }
+        set
+        {
+            referenceToBlob = value;
         }
     }
 }
