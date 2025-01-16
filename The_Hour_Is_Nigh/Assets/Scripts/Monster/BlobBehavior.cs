@@ -45,9 +45,8 @@ public class BlobBehavior : MonoBehaviour
         if (blobHealth <= 0)
         {
             playerStats.PlayerExperienceIncrease(blobMaxHealth);
-            blobDied = true;
+            GameManager.Instance.BlobDied = true;
             Destroy(gameObject);
-            
         }
         else
         {
