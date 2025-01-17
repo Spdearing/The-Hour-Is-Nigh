@@ -45,9 +45,7 @@ public class CameraRaycast : MonoBehaviour
                         enemyHealthManager = objectHit.GetComponent<EnemyHealthManager>();
                         referenceToBlob.TakeDamage(5);
                         referenceToBlob.BlobDies();
-                        
                         GameManager.Instance.SpawnBlobAfterDeath();
-
                     }
                 }
             }

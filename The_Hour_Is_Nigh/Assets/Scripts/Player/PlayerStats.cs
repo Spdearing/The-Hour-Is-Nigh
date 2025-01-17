@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LevelUp(level);
+        
     }
 
     public void PlayerExperienceIncrease(int enemyHealth)
@@ -39,6 +39,18 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public void LevelUp()
+    {
+        if (playerExperience >= levelUp)
+        {
+            level += 1;
+            levelUpOverlap = playerExperience - levelUp;
+            StatIncreases();
+            LevelUp();
+        }
+        return;
+    }
+
     public void StatIncreases()
     {
         playerMaxHealth += 5;
@@ -46,15 +58,15 @@ public class PlayerStats : MonoBehaviour
         this.playerExperience = levelUpOverlap;
     }
 
-    private void LevelUp(int level)
+    public int Level
     {
-        if (playerExperience >= levelUp)
+        get
         {
-            level += 1;
-            levelUpOverlap = playerExperience - levelUp;
-            StatIncreases();
-            Debug.Log("Player Has Leveled Up");
+            return level;
         }
-
-    }
+        set
+        {
+            level = value;
+        }
+    }   
 }
