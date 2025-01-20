@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
     void Setup()
     {
         playerIsActive = true;
-        playerCollider = GetComponent<CapsuleCollider>();
+        playerCollider = GetComponentInChildren<CapsuleCollider>();
         groundDrag = 5.0f;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
