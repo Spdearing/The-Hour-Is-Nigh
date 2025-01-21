@@ -9,8 +9,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int playerMaxHealth;
     [SerializeField] private int playerExperience;
     [SerializeField] private int level;
-    [SerializeField] private int levelUp;
+    [SerializeField] private int levelUp { get; set; }
     [SerializeField] private int levelUpOverlap;
+
+    [Header("Script")]
+    [SerializeField] PlayerExperienceManager experienceManager;
 
 
 
@@ -23,20 +26,14 @@ public class PlayerStats : MonoBehaviour
         playerExperience = player.PlayerExperience;
         levelUp = player.LevelUp;
         level = player.Level;
+        experienceManager = GetComponent<PlayerExperienceManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PlayerExperienceIncrease(int enemyHealth)
     {
         this.playerExperience += Mathf.RoundToInt(enemyHealth + 100);
-        Debug.Log("Payer gained " + enemyHealth/10 + " experience");
-
-
+        experienceManager.UpdatePlayerExperienceBar();
     }
 
     public void LevelUp()
@@ -68,5 +65,27 @@ public class PlayerStats : MonoBehaviour
         {
             level = value;
         }
-    }   
+    }
+    public int LevelUpNumber
+    {
+        get
+        {
+            return levelUp;
+        }
+        set
+        {
+            levelUp = value;
+        }
+    }
+    public int PlayerExperience
+    {
+        get
+        {
+            return playerExperience;
+        }
+        set
+        {
+            playerExperience = value;
+        }
+    }
 }

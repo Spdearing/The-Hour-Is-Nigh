@@ -12,20 +12,22 @@ public class PlayerExperienceManager : MonoBehaviour
     [Header("Player Experience")]
     [SerializeField] int playerExperience;
     [SerializeField] int playerLevelUpThreshold;
+    [SerializeField] int playerLevel;
 
     [Header("Scripts")]
     [SerializeField] PlayerStats playerStats;
     void Start()
     {
+        playerXpBar = GameObject.Find("PlayerXP").GetComponent<Image>();
         playerStats = GetComponent<PlayerStats>();
-        //playerExperience = playerStats.level;
-        //enemyMaxHealth = blobBehavior.EnemyMaxHealth;
-        //enemyHealthBar.fillAmount = enemyMaxHealth;
+        playerExperience = playerStats.PlayerExperience;
+        playerLevel = playerStats.Level;
+        playerLevelUpThreshold = playerStats.LevelUpNumber;
+        playerXpBar.fillAmount = playerExperience;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdatePlayerExperienceBar()
     {
-        
+        playerXpBar.fillAmount = playerExperience;
     }
 }

@@ -25,12 +25,6 @@ public class EnemyHealthManager : MonoBehaviour
         enemyHealthBar.fillAmount = enemyMaxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UpdateEnemyHealth(int enemyCurrentHealth)
     {
         enemyHealth = enemyCurrentHealth;
