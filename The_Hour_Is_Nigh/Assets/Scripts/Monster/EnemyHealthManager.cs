@@ -34,7 +34,8 @@ public class EnemyHealthManager : MonoBehaviour
     public void UpdateEnemyHealth(int enemyCurrentHealth)
     {
         enemyHealth = enemyCurrentHealth;
-        enemyHealthBar.fillAmount = enemyCurrentHealth / 100.0f;
+        enemyHealthBar.fillAmount = enemyCurrentHealth / (float)enemyMaxHealth;
+        
     }
 
     public int EnemyHealth
