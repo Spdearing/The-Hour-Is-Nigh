@@ -18,7 +18,8 @@ public class CameraRaycast : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        interactDistance = 10.0f;
+        raycastDistance = 10.0f;
     }
 
     // Update is called once per frame
