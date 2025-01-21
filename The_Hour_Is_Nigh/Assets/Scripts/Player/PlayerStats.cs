@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int playerMaxHealth;
     [SerializeField] private int playerExperience;
     [SerializeField] private int level;
-    [SerializeField] private int levelUp { get; set; }
+    [SerializeField] private int levelUp;
     [SerializeField] private int levelUpOverlap;
 
     [Header("Script")]
@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player player = new Player("Sam", 0, 1, 5, 25, 25);
+        Player player = new Player("Sam", 0, 1, 25, 25, 25);
         playerHealth = player.PlayerHealth;
         playerMaxHealth = player.PlayerMaxHealth;
         playerExperience = player.PlayerExperience;
@@ -32,8 +32,8 @@ public class PlayerStats : MonoBehaviour
 
     public void PlayerExperienceIncrease(int enemyHealth)
     {
-        this.playerExperience += Mathf.RoundToInt(enemyHealth + 100);
-        experienceManager.UpdatePlayerExperienceBar();
+        this.playerExperience += Mathf.RoundToInt(enemyHealth / 5);
+        experienceManager.UpdatePlayerExperienceBar(playerExperience,levelUp);
     }
 
     public void LevelUp()
@@ -42,6 +42,7 @@ public class PlayerStats : MonoBehaviour
         {
             level += 1;
             levelUpOverlap = playerExperience - levelUp;
+            experienceManager.UpdatePlayerExperienceBar(levelUpOverlap, levelUp);
             StatIncreases();
             LevelUp();
         }
