@@ -26,12 +26,6 @@ public class EnemySpawnerLowLevel : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public IEnumerator SpawnBlob()
     {
         yield return new WaitForSeconds(2);
