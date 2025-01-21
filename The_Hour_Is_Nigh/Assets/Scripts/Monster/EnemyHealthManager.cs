@@ -15,10 +15,6 @@ public class EnemyHealthManager : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] BlobBehavior blobBehavior;
 
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
