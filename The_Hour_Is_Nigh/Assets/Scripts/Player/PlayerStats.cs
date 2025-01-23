@@ -54,6 +54,7 @@ public class PlayerStats : MonoBehaviour
         playerMaxHealth += 5;
         levelUp += 25;
         this.playerExperience = levelUpOverlap;
+        experienceManager.UpdatePlayerExperienceBar(levelUpOverlap, levelUp);
     }
 
     public int Level
