@@ -1,3 +1,5 @@
+using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -7,6 +9,10 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float sensY;
     private float xRotation = 0f;
     private float yRotation = 0f;
+
+    public float zoomSpeed = 10f;  
+    public float minZoom = 5f;     
+    public float maxZoom = 50f;    
 
     [Header("Transform")]
     [SerializeField] private Transform orientation;
@@ -27,9 +33,12 @@ public class CameraMovement : MonoBehaviour
     private Vector2 currentMouseDeltaVelocity;
     [SerializeField] private float mouseSmoothTime = 0.03f;
 
+    [SerializeField] private CinemachineVirtualCamera cam;
+
     // Start is called before the first frame update
     private void Start()
     {
+        cam = GetComponent<CinemachineVirtualCamera>();
         //playerMovement = GameManager.instance.ReturnPlayerMovement();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -74,5 +83,14 @@ public class CameraMovement : MonoBehaviour
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
             orientation.localRotation = Quaternion.Euler(0f, yRotation, 0f);
         }
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0)
+        {
+            float newFOV = cam.m_Lens.FieldOfView - scroll * zoomSpeed;
+            cam.m_Lens.FieldOfView = Mathf.Clamp(newFOV, minZoom, maxZoom);
+        }
     }
+    
+        
+    
 }

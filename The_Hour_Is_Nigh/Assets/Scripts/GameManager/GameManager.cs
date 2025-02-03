@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private EnemySpawnerLowLevel blobSpawn;
 
+    [Header("Enemy")]
+    [SerializeField] private GameObject smallBlob;
+    [SerializeField] private GameObject mediumBlob;
+    [SerializeField] private GameObject largeBlob;
+
     private void Awake()
     {
-
-        if (Instance != null && Instance != this)
-        {
+        if (Instance != null && Instance != this){
             Destroy(gameObject); 
             return;
         }
@@ -24,26 +27,20 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
         blobSpawn = GameObject.Find("SpawnLocation").GetComponent<EnemySpawnerLowLevel>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        smallBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint1");
+        mediumBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint2");
+        largeBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint3");
     }
 
     public void SpawnBlobAfterDeath()
     {
-        if (blobDied)
-        {
-            blobSpawn.StartCoroutine(blobSpawn.SpawnBlob());
-        }
-        return;
+        if (blobDied){
+            blobSpawn.StartCoroutine(blobSpawn.SpawnBlob(smallBlob,blobSpawn.transform.position));
+        }return;
     }
 
 
