@@ -33,4 +33,5 @@ public class EnemySpawnerLowLevel : MonoBehaviour
         blobEnemyInstance.AddComponent<EnemyHealthManager>();
         GameManager.Instance.BlobDied = false;
     }
+    
 }

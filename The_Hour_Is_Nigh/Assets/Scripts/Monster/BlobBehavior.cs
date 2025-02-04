@@ -42,34 +42,44 @@ public class BlobBehavior : MonoBehaviour
             GameManager.Instance.BlobDied = true;
             Destroy(gameObject);
         }
-        else{
+        else
+        {
             return;
         }
     }
 
-    public void BlobWillRespawn(){
-        if (blobDied == true){
+    public void BlobWillRespawn()
+    {
+        if (blobDied == true)
+        {
             Invoke("SpawnBlobs", 3);
         }
         return;
     }
-    public void TakeDamage(int playerAttackDamage){
+    public void TakeDamage(int playerAttackDamage)
+    {
         blobHealth -= playerAttackDamage;
         enemyHealthManager.UpdateEnemyHealth(blobHealth);
     }
 
-    public int EnemyHealth{
-        get{
+    public int EnemyHealth
+    {
+        get
+        {
             return blobHealth;
-        }set{
+        }set
+        {
             blobHealth = value;
         }
     }
 
-    public int EnemyMaxHealth{
-        get{
+    public int EnemyMaxHealth
+    {
+        get
+        {
             return blobMaxHealth;
-        }set{
+        }set
+        {
             blobMaxHealth = value;
         }
     }
