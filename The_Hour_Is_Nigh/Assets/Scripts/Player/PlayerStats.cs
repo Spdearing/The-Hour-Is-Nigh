@@ -15,8 +15,6 @@ public class PlayerStats : MonoBehaviour
     [Header("Script")]
     [SerializeField] PlayerExperienceManager experienceManager;
 
-
-
     // Start is called before the first frame update
     void Start()
     {

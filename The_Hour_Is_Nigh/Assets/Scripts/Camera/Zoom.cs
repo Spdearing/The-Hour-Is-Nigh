@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Zoom : MonoBehaviour
 {
-    public float zoomSpeed = 10f;
-    public float minZoom = 5f;
-    public float maxZoom = 50f;
-    public float smoothTime = 0.1f;
+    [SerializeField] private float zoomSpeed;
+    [SerializeField] private float minZoom;
+    [SerializeField] private float maxZoom;
+    [SerializeField] private float smoothTime;
 
-    private float targetFOV;
-    private float velocity = 0f;
+    [SerializeField] private float targetFOV;
+    [SerializeField] private float velocity = 0f;
 
     [SerializeField] private CinemachineFreeLook cam;
 
@@ -20,6 +20,10 @@ public class Zoom : MonoBehaviour
     {
         cam = GetComponent<CinemachineFreeLook>();
         targetFOV = cam.m_Lens.FieldOfView;
+        zoomSpeed = 20f;
+        minZoom = 5f;
+        maxZoom = 100.0f;
+        smoothTime = 0.1f;
 
     }
 
