@@ -10,7 +10,9 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     [SerializeField] private GameObject largeBlob;
 
     [Header("Enemy Spawn Location")]
-    [SerializeField] private Vector3 spawnLocation1;
+    [SerializeField] private Transform spawnLocation1;
+    [SerializeField] private Transform spawnLocation2;
+    [SerializeField] private Transform spawnLocation3;
 
     public delegate void SpawnBlobs();
     public static event SpawnBlobs spawnBlob;
@@ -18,11 +20,13 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnLocation1 = this.gameObject.transform.position;
+
         smallBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint1");
         mediumBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint2");
         largeBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint3");
-        StartCoroutine(SpawnBlob(smallBlob,spawnLocation1));
+        spawnLocation1 = GameObject.Find("SpawnLocationOne").GetComponent<Transform>();
+        spawnLocation2 = GameObject.Find("SpawnLocationTwo").GetComponent<Transform>();
+        CheckBlobEnemyLocation(this.gameObject.name);
     }
 
     public IEnumerator SpawnBlob(GameObject blobEnemy, Vector3 spawnLocation)
@@ -33,5 +37,53 @@ public class EnemySpawnerLowLevel : MonoBehaviour
         blobEnemyInstance.AddComponent<EnemyHealthManager>();
         GameManager.Instance.BlobDied = false;
     }
-    
+
+    public void CheckBlobEnemyLocation(string spawnLocation)
+    {
+        switch(spawnLocation)
+        {
+            case "SpawnLocationOne":
+                {
+                    StartCoroutine(SpawnBlob(smallBlob, spawnLocation1.transform.position));
+                }
+                break;
+            case "SpawnLocationTwo":
+                {
+                    
+                    StartCoroutine(SpawnBlob(mediumBlob, spawnLocation2.transform.position));
+                }
+                break;
+
+            default:
+                Debug.LogWarning("Invalid spawn location: " + spawnLocation);
+                break;
+        }
+    }
+
+    public void RespawnEnemy(string enemyName)
+    {
+        Vector3 enemySpawnLocation = gameObject.transform.position;
+
+        switch (enemyName)
+        {
+            case "ReferencePoint1(Clone)":
+                {
+                    StartCoroutine(SpawnBlob(smallBlob, spawnLocation1.transform.position));
+                }
+                break;
+            case "ReferencePoint2(Clone)":
+                {
+                    enemySpawnLocation = gameObject.transform.position;
+                    StartCoroutine(SpawnBlob(mediumBlob, spawnLocation2.transform.position));
+                }
+                break;
+
+            default:
+                Debug.LogWarning("Invalid spawn location: " + enemyName);
+                break;
+        }
+    }
 }
+
+
+

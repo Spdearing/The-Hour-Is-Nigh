@@ -30,19 +30,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        blobSpawn = GameObject.Find("SpawnLocation").GetComponent<EnemySpawnerLowLevel>();
-        smallBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint1");
-        mediumBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint2");
-        largeBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint3");
+        blobSpawn = GameObject.Find("SpawnLocationOne").GetComponent<EnemySpawnerLowLevel>();
     }
 
-    public void SpawnBlobAfterDeath()
+    public void SpawnBlobAfterDeath(string blob)
     {
-        if (blobDied){
-            blobSpawn.StartCoroutine(blobSpawn.SpawnBlob(smallBlob,blobSpawn.transform.position));
-        }return;
+        if (blobDied)
+        {
+            blobSpawn.RespawnEnemy(blob);
+        }
     }
-
 
     public bool BlobDied
     {

@@ -6,6 +6,7 @@ using UnityEngine;
 public class BlobBehavior : MonoBehaviour
 {
     [Header("Blob Stats")]
+    [SerializeField] private Enemy blob;
     [SerializeField] private int blobHealth;
     [SerializeField] private int blobMaxHealth;
 
@@ -21,18 +22,39 @@ public class BlobBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        Enemy blob = new Enemy("Blob", 25, 25, 2);
+        CheckEnemy(gameObject.name);
         gameObject.name = blob.EnemyName;
         gameObject.tag = "Enemy";
         blobHealth = blob.EnemyHealth;
         blobMaxHealth = blob.EnemyMaxHealth;
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
-        blobSpawner = GameObject.Find("SpawnLocation").GetComponent<EnemySpawnerLowLevel>();
+        blobSpawner = GameObject.Find("SpawnLocationOne").GetComponent<EnemySpawnerLowLevel>();
         enemyHealthManager = this.gameObject.GetComponent<EnemyHealthManager>();
         blobDied = false;
         
     }
+
+    public void CheckEnemy(string enemyName)
+    {
+        switch (enemyName)
+        {
+            case "ReferencePoint1(Clone)":
+                {
+                    blob = new Enemy("Weak Blob", 20, 25, 2);
+                }
+                break;
+            case "ReferencePoint2(Clone)":
+                {
+                    blob = new Enemy("Medium Blob", 35, 25, 2);
+                }
+                break;
+
+            default:
+                Debug.LogWarning("Invalid spawn location: " + enemyName);
+                break;
+        }
+    }
+
 
     public void BlobDies()
     {
