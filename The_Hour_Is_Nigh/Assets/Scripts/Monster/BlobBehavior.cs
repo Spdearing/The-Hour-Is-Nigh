@@ -23,12 +23,13 @@ public class BlobBehavior : MonoBehaviour
     void Start()
     {
         CheckEnemy(gameObject.name);
+        Debug.Log(gameObject.name);
         gameObject.name = blob.EnemyName;
         gameObject.tag = "Enemy";
         blobHealth = blob.EnemyHealth;
+        Debug.Log(gameObject.name);
         blobMaxHealth = blob.EnemyMaxHealth;
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
-        blobSpawner = GameObject.Find("SpawnLocationOne").GetComponent<EnemySpawnerLowLevel>();
         enemyHealthManager = this.gameObject.GetComponent<EnemyHealthManager>();
         blobDied = false;
         
@@ -38,14 +39,14 @@ public class BlobBehavior : MonoBehaviour
     {
         switch (enemyName)
         {
-            case "ReferencePoint1(Clone)":
+            case "EnemyOne(Clone)":
                 {
-                    blob = new Enemy("Weak Blob", 20, 25, 2);
+                    blob = new Enemy("Weak Blob", 25, 25, 2);
                 }
                 break;
-            case "ReferencePoint2(Clone)":
+            case "EnemyTwo(Clone)":
                 {
-                    blob = new Enemy("Medium Blob", 35, 25, 2);
+                    blob = new Enemy("Medium Blob", 35, 35, 5);
                 }
                 break;
 

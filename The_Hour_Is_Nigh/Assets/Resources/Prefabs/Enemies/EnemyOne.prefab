@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1016170282090630885}
   - component: {fileID: 3634467513247601714}
   m_Layer: 0
-  m_Name: ReferencePoint1
+  m_Name: EnemyOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

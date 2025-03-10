@@ -20,10 +20,9 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        smallBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint1");
-        mediumBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint2");
-        largeBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\ReferencePoint3");
+        smallBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\EnemyOne");
+        mediumBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\EnemyTwo");
+        largeBlob = Resources.Load<GameObject>("Prefabs\\Enemies\\EnemyThree");
         spawnLocation1 = GameObject.Find("SpawnLocationOne").GetComponent<Transform>();
         spawnLocation2 = GameObject.Find("SpawnLocationTwo").GetComponent<Transform>();
         CheckBlobEnemyLocation(this.gameObject.name);
@@ -33,8 +32,8 @@ public class EnemySpawnerLowLevel : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         GameObject blobEnemyInstance = Instantiate(blobEnemy, spawnLocation, Quaternion.identity);
-        blobEnemyInstance.AddComponent<BlobBehavior>();
-        blobEnemyInstance.AddComponent<EnemyHealthManager>();
+        blobEnemy.AddComponent<BlobBehavior>();
+        blobEnemy.AddComponent<EnemyHealthManager>();
         GameManager.Instance.BlobDied = false;
     }
 
@@ -66,12 +65,12 @@ public class EnemySpawnerLowLevel : MonoBehaviour
 
         switch (enemyName)
         {
-            case "ReferencePoint1(Clone)":
+            case "EnemyOne(Clone)":
                 {
                     StartCoroutine(SpawnBlob(smallBlob, spawnLocation1.transform.position));
                 }
                 break;
-            case "ReferencePoint2(Clone)":
+            case "EnemyTwo(Clone)":
                 {
                     enemySpawnLocation = gameObject.transform.position;
                     StartCoroutine(SpawnBlob(mediumBlob, spawnLocation2.transform.position));
