@@ -18,17 +18,24 @@ public class BlobBehavior : MonoBehaviour
     [Header("Bools")]
     [SerializeField] private bool blobDied;
 
+    [Header("GameObject")]
+    [SerializeField] private GameObject smallBlob;
+    [SerializeField] private GameObject mediumBlob;    
+    [SerializeField] private GameObject largeBlob;
+
 
     // Start is called before the first frame update
     void Start()
     {
         CheckEnemy(gameObject.name);
-        Debug.Log(gameObject.name);
         gameObject.name = blob.EnemyName;
         gameObject.tag = "Enemy";
         blobHealth = blob.EnemyHealth;
-        Debug.Log(gameObject.name);
         blobMaxHealth = blob.EnemyMaxHealth;
+        blobSpawner = gameObject.GetComponent<EnemySpawnerLowLevel>();
+        smallBlob = blobSpawner.ReturnSmallBlob();
+        mediumBlob = blobSpawner.ReturnMediumBlob();
+        largeBlob = blobSpawner.ReturnLargeBlob();
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         enemyHealthManager = this.gameObject.GetComponent<EnemyHealthManager>();
         blobDied = false;
@@ -75,7 +82,7 @@ public class BlobBehavior : MonoBehaviour
     {
         if (blobDied == true)
         {
-            Invoke("SpawnBlobs", 3);
+            Invoke(blobSpawner.SpawnBlob(), 3);
         }
         return;
     }

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 147640682216039679}
   - component: {fileID: 5665099162265916547}
   - component: {fileID: 3954441061805715662}
+  - component: {fileID: -6937605984366794982}
+  - component: {fileID: -8544755820153182258}
   m_Layer: 0
   m_Name: EnemyTwo
   m_TagString: Untagged
@@ -106,6 +108,41 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6937605984366794982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149764426295746330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+--- !u!114 &-8544755820153182258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149764426295746330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
 --- !u!1 &3267999433709686561
 GameObject:
   m_ObjectHideFlags: 0

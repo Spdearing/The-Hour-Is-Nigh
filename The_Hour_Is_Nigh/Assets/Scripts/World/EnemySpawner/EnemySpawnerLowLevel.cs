@@ -82,6 +82,22 @@ public class EnemySpawnerLowLevel : MonoBehaviour
                 break;
         }
     }
+
+
+    public GameObject ReturnSmallBlob()
+    {
+        return smallBlob;
+    }
+
+    public GameObject ReturnMediumBlob()
+    {
+        return mediumBlob;
+    }
+
+    public GameObject ReturnLargeBlob()
+    {
+        return largeBlob;   
+    }
 }
 
 
