@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class BlobBehavior : MonoBehaviour
@@ -22,6 +23,11 @@ public class BlobBehavior : MonoBehaviour
     [SerializeField] private GameObject smallBlob;
     [SerializeField] private GameObject mediumBlob;    
     [SerializeField] private GameObject largeBlob;
+    [SerializeField] private GameObject spawn1;
+
+
+    [Header("Vector3")]
+    [SerializeField] private Vector3 spawnLocation1;
 
 
     // Start is called before the first frame update
@@ -39,6 +45,9 @@ public class BlobBehavior : MonoBehaviour
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         enemyHealthManager = this.gameObject.GetComponent<EnemyHealthManager>();
         blobDied = false;
+        spawn1 = GameObject.Find("SpawnLocation1");
+        spawnLocation1 = spawn1.GetComponent<Vector3>();
+
         
     }
 
@@ -82,7 +91,7 @@ public class BlobBehavior : MonoBehaviour
     {
         if (blobDied == true)
         {
-            Invoke(blobSpawner.SpawnBlob(), 3);
+            Invoke("blobSpawner.SpawnBlob(smallBlob,spawnLocation1,)",3);
         }
         return;
     }

@@ -194,6 +194,48 @@ GameObject:
   - component: {fileID: 3634467513247601714}
   - component: {fileID: -7916020382806096902}
   - component: {fileID: -6797946634861015790}
+  - component: {fileID: 2794506042222321175}
+  - component: {fileID: 2707381218036838064}
+  - component: {fileID: 1290519317222350385}
+  - component: {fileID: 3391044311770832553}
+  - component: {fileID: 7314189186711498484}
+  - component: {fileID: 6424273747815551324}
+  - component: {fileID: 5739455606219050186}
+  - component: {fileID: -1535005639175026434}
+  - component: {fileID: -7869601211177619701}
+  - component: {fileID: 1700512520799133280}
+  - component: {fileID: 5982817721715288781}
+  - component: {fileID: 2715415677885791150}
+  - component: {fileID: -6156319696339599535}
+  - component: {fileID: 8633525021828177910}
+  - component: {fileID: 6803232342235054648}
+  - component: {fileID: 1483962401881683064}
+  - component: {fileID: 2358337819463702607}
+  - component: {fileID: -6986662145009472422}
+  - component: {fileID: 6227720465357894984}
+  - component: {fileID: -3017728880204651862}
+  - component: {fileID: -8483946991726752993}
+  - component: {fileID: -2728685826491304318}
+  - component: {fileID: -6557060944667015794}
+  - component: {fileID: 4833354273101177606}
+  - component: {fileID: 98682417978443491}
+  - component: {fileID: -7177562471976269407}
+  - component: {fileID: 1145363295943291123}
+  - component: {fileID: 8573006318395113353}
+  - component: {fileID: -286849911806440226}
+  - component: {fileID: -5379079739764660275}
+  - component: {fileID: 4397139544803453627}
+  - component: {fileID: -4195227307673531403}
+  - component: {fileID: -8780713209781717493}
+  - component: {fileID: 8503354302607094378}
+  - component: {fileID: -2128847947061874777}
+  - component: {fileID: -2537965352075519392}
+  - component: {fileID: -9000548329487092960}
+  - component: {fileID: 8409378000077578520}
+  - component: {fileID: -5010207411295769480}
+  - component: {fileID: -6333786846427704346}
+  - component: {fileID: 1196766105016722645}
+  - component: {fileID: 6707694055359085175}
   m_Layer: 0
   m_Name: EnemyOne
   m_TagString: Untagged
@@ -306,7 +348,852 @@ MonoBehaviour:
   blobSpawner: {fileID: 0}
   enemyHealthManager: {fileID: 0}
   blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
 --- !u!114 &-6797946634861015790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &2794506042222321175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &2707381218036838064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &1290519317222350385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &3391044311770832553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &7314189186711498484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &6424273747815551324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &5739455606219050186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-1535005639175026434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-7869601211177619701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &1700512520799133280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &5982817721715288781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &2715415677885791150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-6156319696339599535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &8633525021828177910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &6803232342235054648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &1483962401881683064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &2358337819463702607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-6986662145009472422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &6227720465357894984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-3017728880204651862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-8483946991726752993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-2728685826491304318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-6557060944667015794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &4833354273101177606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &98682417978443491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-7177562471976269407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &1145363295943291123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &8573006318395113353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-286849911806440226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-5379079739764660275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &4397139544803453627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-4195227307673531403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-8780713209781717493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &8503354302607094378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-2128847947061874777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-2537965352075519392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-9000548329487092960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &8409378000077578520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &-5010207411295769480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &-6333786846427704346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf986009401b1c419529262fccc0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  enemyHealth: 0
+  enemyMaxHealth: 0
+  blobBehavior: {fileID: 0}
+--- !u!114 &1196766105016722645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478739523607750516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0afcf567ac29254a810c36948327a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobHealth: 0
+  blobMaxHealth: 0
+  playerStats: {fileID: 0}
+  blobSpawner: {fileID: 0}
+  enemyHealthManager: {fileID: 0}
+  blobDied: 0
+  smallBlob: {fileID: 0}
+  mediumBlob: {fileID: 0}
+  largeBlob: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawnLocation1: {x: 0, y: 0, z: 0}
+--- !u!114 &6707694055359085175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

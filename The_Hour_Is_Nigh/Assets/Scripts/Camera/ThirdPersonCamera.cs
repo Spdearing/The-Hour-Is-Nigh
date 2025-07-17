@@ -12,6 +12,9 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float rotationSpeed;
 
+    [Header("Vector3")]
+    [SerializeField] private Vector3 offset;
+
     
 
     private void Start()
@@ -19,6 +22,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        offset = new Vector3(10,0,0);
     }
 
     private void Update()
