@@ -5,22 +5,20 @@ using UnityEngine.UIElements;
 
 public class BJ_Deck : MonoBehaviour
 {
-    [SerializeField] public Dictionary<string,List<string>> suits = new Dictionary<string, List<string>>(); 
+    [SerializeField] private Dictionary<string,List<string>> deck = new Dictionary<string, List<string>>(); 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        suits["Hearts"] = new List<string> { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-        suits["Spades"] = new List<string> { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-        suits["Diamonds"] = new List<string> { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-        suits["Clubs"] = new List<string> { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-
-        Debug.Log(string.Join(", ", suits["Hearts"]));
+        deck["Hearts"] = new List<string> { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        deck["Spades"] = new List<string> { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+        deck["Diamonds"] = new List<string> { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+        deck["Clubs"] = new List<string> { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     }
 
-    public void ShuffleDeck()
+    public Dictionary<string, List<string>> ConstructDeck()
     {
-
+        return  this.deck;
     }
 }
