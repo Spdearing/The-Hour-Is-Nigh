@@ -15,7 +15,7 @@ public class BlackJackManager : MonoBehaviour
     [SerializeField] private BJ_Deck deck;
     [SerializeField] private Dictionary<string, List<string>> shuffledDeck;
 
-    [SerializeField] private List<int> dealersDeck;
+    [SerializeField] private List<int> ranks;
     [SerializeField] private List<string> suits;
 
     // Start is called before the first frame update
@@ -70,11 +70,9 @@ public class BlackJackManager : MonoBehaviour
                     faceCardValue = int.Parse(value);
                 }
 
-                dealersDeck.Add(faceCardValue);
+                ranks.Add(faceCardValue);
                 suits.Add(suit);
                 shuffledDeck[suit].Remove(value);
-                Debug.Log("Suit " + suit);
-                Debug.Log("Rank " + value);
 
                 Debug.Log("Number of cards left in suit: " + cardSpotInList.Count);
 
@@ -90,5 +88,15 @@ public class BlackJackManager : MonoBehaviour
 
             }
         }
+    }
+
+    public List<int> GetRanks()
+    {
+        return ranks;
+    }
+
+    public List<string> GetSuits()
+    {
+        return suits;
     }
 }
