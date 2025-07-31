@@ -5,27 +5,35 @@ using System.Linq;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlackJackManager : MonoBehaviour
 {
     [Header("Instances of essential elements")]
-
     [SerializeField] private PlayersHand playerHand;
     [SerializeField] private Dealer dealer;
     [SerializeField] private Card card;
+    [SerializeField] private ScriptableObject cardObject;
     [SerializeField] private BJ_Deck deck;
     [SerializeField] private Dictionary<string, List<string>> shuffledDeck;
+    [SerializeField] private Dictionary<string, Image> suitSymbols;
 
+
+    [Header("Card Lists")]
     [SerializeField] private List<int> ranks;
     [SerializeField] private List<string> suits;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerHand = new PlayersHand();
+        card = new Card();
         dealer = new Dealer();
         deck = GameObject.Find("Deck").GetComponent<BJ_Deck>();
         shuffledDeck = deck.ConstructDeck();
+        cardObject = Resources.Load<ScriptableObject>("Card.asset");
+        AddToCardSprites();
         FormDeck();
         DealPlayerCards();
         ShowPlayersHand();
@@ -37,14 +45,41 @@ public class BlackJackManager : MonoBehaviour
         
     }
 
+    private void GetCardImages()
+    {
+
+    }
+
+    public void AddToCardSprites()
+    {
+        
+        Image[] suitImages = Resources.LoadAll<Image>("Suit Images.png"); // Correct path and type
+        suitSymbols = card.DeckImages(); //get card from the scriptable object
+
+        if (suitImages.Length >= 4)
+        {
+            suitSymbols.Add("Spade", suitImages[0]);
+            suitSymbols.Add("Diamond", suitImages[1]);
+            suitSymbols.Add("Club", suitImages[2]);
+            suitSymbols.Add("Hearts", suitImages[3]);
+        }
+        else
+        {
+            Debug.LogWarning("Not enough sprites loaded from Suit Images.png!");
+        }
+        Debug.Log(3);
+    }
+
     public void FormDeck()
     {
         int faceCardValue;
         int cardsDrawn = 0;
-
+        Debug.Log(1);
+        ScriptableObject newCard;
 
         while(cardsDrawn < 52)
         {
+            newCard = Instantiate(cardObject,new Vector3(0,0,0), Quaternion.identity);
             int randomSuit = UnityEngine.Random.Range(0, shuffledDeck.Count);
             
             var dictionaryKey = shuffledDeck.ElementAt(randomSuit);
@@ -76,17 +111,7 @@ public class BlackJackManager : MonoBehaviour
                 suits.Add(suit);
                 shuffledDeck[suit].Remove(value);
 
-                Debug.Log("Number of cards left in suit: " + cardSpotInList.Count);
-
-                Debug.Log("Value to be removed: " +  suit + value);
-
                 cardsDrawn += 1;
-                Debug.Log("Cards Drawn: " + cardsDrawn);
-
-                foreach (string rank in cardSpotInList)
-                {
-                    Debug.Log($"Suit: {suit} → Cards: {string.Join(", ", rank)}");
-                }
 
             }
         }
@@ -106,7 +131,6 @@ public class BlackJackManager : MonoBehaviour
     {
         suits.Remove(suits[0]);
         ranks.Remove(ranks[0]);
-        Debug.Log("Removing Card");
     }
 
     public void DealRandomCard()
@@ -116,9 +140,20 @@ public class BlackJackManager : MonoBehaviour
 
     public void DealPlayerCards()
     {
+        Debug.Log(2);
         for (int i = 0; i < 2; i++)
         {
             playerHand.InitialHand(suits[0], ranks[0]);
+            Debug.Log("Suit Keys: " + string.Join(", ", suitSymbols.Keys));
+
+            foreach (string suit in suitSymbols.Keys )
+            {
+                if(suit == suits[0])
+                {
+                    card.SetSuitImage(suit);
+                    Debug.Log("card image should be " + suit);
+                }
+            }
         }
     }
 
