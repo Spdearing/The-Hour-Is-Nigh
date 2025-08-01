@@ -13,7 +13,6 @@ public class BlackJackManager : MonoBehaviour
     [SerializeField] private PlayersHand playerHand;
     [SerializeField] private Dealer dealer;
     [SerializeField] private Card card;
-    [SerializeField] private ScriptableObject cardObject;
     [SerializeField] private BJ_Deck deck;
     [SerializeField] private Dictionary<string, List<string>> shuffledDeck;
     [SerializeField] private Dictionary<string, Image> suitSymbols;
@@ -28,11 +27,10 @@ public class BlackJackManager : MonoBehaviour
     void Start()
     {
         playerHand = new PlayersHand();
-        card = new Card();
+        card = ScriptableObject.CreateInstance<Card>();
         dealer = new Dealer();
         deck = GameObject.Find("Deck").GetComponent<BJ_Deck>();
         shuffledDeck = deck.ConstructDeck();
-        cardObject = Resources.Load<ScriptableObject>("Card.asset");
         AddToCardSprites();
         FormDeck();
         DealPlayerCards();
@@ -75,11 +73,11 @@ public class BlackJackManager : MonoBehaviour
         int faceCardValue;
         int cardsDrawn = 0;
         Debug.Log(1);
-        ScriptableObject newCard;
+        
 
         while(cardsDrawn < 52)
         {
-            newCard = Instantiate(cardObject,new Vector3(0,0,0), Quaternion.identity);
+            Card newCard = ScriptableObject.Instantiate(card as Card);
             int randomSuit = UnityEngine.Random.Range(0, shuffledDeck.Count);
             
             var dictionaryKey = shuffledDeck.ElementAt(randomSuit);
