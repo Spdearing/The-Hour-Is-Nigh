@@ -15,7 +15,7 @@ public class BlackJackManager : MonoBehaviour
     [SerializeField] private Card card;
     [SerializeField] private BJ_Deck deck;
     [SerializeField] private Dictionary<string, List<string>> shuffledDeck;
-    [SerializeField] private Dictionary<string, Image> suitSymbols;
+    [SerializeField] private Dictionary<string, Sprite> suitSymbols;
 
 
     [Header("Card Lists")]
@@ -51,15 +51,19 @@ public class BlackJackManager : MonoBehaviour
     public void AddToCardSprites()
     {
         
-        Image[] suitImages = Resources.LoadAll<Image>("Suit Images.png"); // Correct path and type
+        Sprite[] suitImages = Resources.LoadAll<Sprite>("Images/Suit Images"); // Correct path and type
         suitSymbols = card.DeckImages(); //get card from the scriptable object
+        Debug.Log(suitImages.Length);
 
         if (suitImages.Length >= 4)
         {
+            Debug.Log("Populating Image Array");
             suitSymbols.Add("Spade", suitImages[0]);
             suitSymbols.Add("Diamond", suitImages[1]);
             suitSymbols.Add("Club", suitImages[2]);
             suitSymbols.Add("Hearts", suitImages[3]);
+            Debug.Log("Image Array is Populated");
+            Debug.Log(suitSymbols.Count);
         }
         else
         {

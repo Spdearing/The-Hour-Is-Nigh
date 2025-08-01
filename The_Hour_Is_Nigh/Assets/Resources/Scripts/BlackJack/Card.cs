@@ -8,13 +8,13 @@ using UnityEngine.UI;
 
 public class Card : ScriptableObject
 {
-    [SerializeField] private Dictionary<string, Image> deckImages = new Dictionary<string, Image>();
+    [SerializeField] private Dictionary<string, Sprite> deckImages = new Dictionary<string, Sprite>();
 
 
     [SerializeField] private Image Image;
     [SerializeField] private string suit;
     [SerializeField] private int value;
-    [SerializeField] private Image suitImage;
+    [SerializeField] private Sprite suitImage;
     [SerializeField] private GameObject card;
 
     public string GetSuit()
@@ -32,12 +32,12 @@ public class Card : ScriptableObject
         suitImage = deckImages[suit];    
     }
 
-    public void ReturnSuitImage(Image suit)
+    public void ReturnSuitImage(Sprite suit)
     {
         suitImage = suit;
     }
 
-    public Dictionary<string, Image> DeckImages()
+    public Dictionary<string, Sprite> DeckImages()
     {
         return deckImages;
     }
