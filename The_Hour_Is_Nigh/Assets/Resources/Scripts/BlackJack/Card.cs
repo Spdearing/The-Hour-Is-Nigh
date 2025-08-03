@@ -27,14 +27,24 @@ public class Card : ScriptableObject
         return this.value;
     }
 
+    public void SetCardValue(int value)
+    {
+        this.value = value;
+    }
+
+    public void SetCardSuit(string suit)
+    {
+        this.suit = suit;
+    }
+
     public void SetSuitImage(string suit)
     {
         suitImage = deckImages[suit];    
     }
 
-    public void ReturnSuitImage(Sprite suit)
+    public Sprite ReturnSuitImage()
     {
-        suitImage = suit;
+        return this.suitImage;
     }
 
     public Dictionary<string, Sprite> DeckImages()

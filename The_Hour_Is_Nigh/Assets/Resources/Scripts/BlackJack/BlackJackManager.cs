@@ -9,11 +9,15 @@ using UnityEngine.UI;
 
 public class BlackJackManager : MonoBehaviour
 {
+    public static BlackJackManager Instance;
+
     [Header("Instances of essential elements")]
     [SerializeField] private PlayersHand playerHand;
     [SerializeField] private Dealer dealer;
     [SerializeField] private Card card;
+    [SerializeField] private Card playingCard;
     [SerializeField] private BJ_Deck deck;
+    [SerializeField] private GameObject cardObject;
     [SerializeField] private Dictionary<string, List<string>> shuffledDeck;
     [SerializeField] private Dictionary<string, Sprite> suitSymbols;
 
@@ -21,15 +25,18 @@ public class BlackJackManager : MonoBehaviour
     [Header("Card Lists")]
     [SerializeField] private List<int> ranks;
     [SerializeField] private List<string> suits;
+    [SerializeField] private List<Card> cardDeck;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        cardDeck = new List<Card>();
+        card = ScriptableObject.CreateInstance<Card>(); 
         playerHand = new PlayersHand();
-        card = ScriptableObject.CreateInstance<Card>();
         dealer = new Dealer();
         deck = GameObject.Find("Deck").GetComponent<BJ_Deck>();
+        cardObject = Resources.Load<GameObject>("Prefabs/Cards/Card");
         shuffledDeck = deck.ConstructDeck();
         AddToCardSprites();
         FormDeck();
@@ -41,6 +48,20 @@ public class BlackJackManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Multiple instances of BlackJackManager detected. Destroying duplicate.");
+            Destroy(gameObject);
+        }
     }
 
     private void GetCardImages()
@@ -81,7 +102,9 @@ public class BlackJackManager : MonoBehaviour
 
         while(cardsDrawn < 52)
         {
-            Card newCard = ScriptableObject.Instantiate(card as Card);
+            Card newCardInstance = ScriptableObject.CreateInstance<Card>();
+            GameObject newCard = Instantiate(cardObject, new Vector3(0,0,0), Quaternion.identity);
+            CardData data = newCard.GetComponent<CardData>();
             int randomSuit = UnityEngine.Random.Range(0, shuffledDeck.Count);
             
             var dictionaryKey = shuffledDeck.ElementAt(randomSuit);
@@ -109,15 +132,66 @@ public class BlackJackManager : MonoBehaviour
                     faceCardValue = int.Parse(value);
                 }
 
+                newCardInstance.SetCardValue(faceCardValue);
+                newCardInstance.SetCardSuit(suit);
+                Debug.Log($"Created card - Suit: {newCardInstance.GetSuit()}, Value: {newCardInstance.GetValue()}");
+                cardDeck.Add(newCardInstance);
+                data.SetCardData(newCardInstance);
                 ranks.Add(faceCardValue);
                 suits.Add(suit);
                 shuffledDeck[suit].Remove(value);
+               
 
                 cardsDrawn += 1;
 
             }
         }
     }
+
+
+    public void RemoveDeltCardsFromLists()
+    {
+        if (cardDeck.Count > 0)
+            cardDeck.RemoveAt(0);
+    }
+
+    public void DealRandomCard()
+    {
+        Card topCard = cardDeck[0];
+        playerHand.InitialHand(topCard.GetSuit(), topCard.GetValue());
+    }
+
+    public void DealPlayerCards()
+    {
+        Debug.Log(2);
+        for (int i = 0; i < 2; i++)
+        {
+            if (cardDeck.Count > 0)
+            {
+                Card drawnCard = cardDeck[0];
+                playerHand.InitialHand(drawnCard.GetSuit(), drawnCard.GetValue());
+                Debug.Log($"Dealt: {drawnCard.GetSuit()} {drawnCard.GetValue()}");
+
+                // Display card image (if needed)
+                if (suitSymbols.TryGetValue(drawnCard.GetSuit(), out Sprite suitSprite))
+                {
+                    card.SetSuitImage(drawnCard.GetSuit());
+                    Debug.Log("card image should be " + drawnCard.GetSuit());
+                }
+
+                cardDeck.RemoveAt(0);
+            }
+        }
+    }
+
+    public void ShowPlayersHand()
+    {
+        List<Tuple<string,int>> playersCards;
+        playersCards = playerHand.GetPlayersHand();
+        Debug.Log(playersCards[0]);
+        Debug.Log(playersCards[1]);
+    }
+
 
     public List<int> GetRanks()
     {
@@ -129,42 +203,11 @@ public class BlackJackManager : MonoBehaviour
         return suits;
     }
 
-    public void RemoveDeltCardsFromLists()
+    public Card GetPlayingCard()
     {
-        suits.Remove(suits[0]);
-        ranks.Remove(ranks[0]);
-    }
-
-    public void DealRandomCard()
-    {
-        playerHand.InitialHand(suits[0], ranks[0]);
-    }
-
-    public void DealPlayerCards()
-    {
-        Debug.Log(2);
-        for (int i = 0; i < 2; i++)
-        {
-            playerHand.InitialHand(suits[0], ranks[0]);
-            Debug.Log("Suit Keys: " + string.Join(", ", suitSymbols.Keys));
-
-            foreach (string suit in suitSymbols.Keys )
-            {
-                if(suit == suits[0])
-                {
-                    card.SetSuitImage(suit);
-                    Debug.Log("card image should be " + suit);
-                }
-            }
-        }
-    }
-
-    public void ShowPlayersHand()
-    {
-        List<Tuple<string,int>> playersCards;
-        playersCards = playerHand.GetPlayersHand();
-        Debug.Log(playersCards[0]);
-        Debug.Log(playersCards[1]);
+     
+            return this.playingCard; 
+        
     }
 }
 
