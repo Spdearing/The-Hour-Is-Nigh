@@ -38,7 +38,7 @@ public class BlackJackManager : MonoBehaviour
         deck = GameObject.Find("Deck").GetComponent<BJ_Deck>();
         cardObject = Resources.Load<GameObject>("Prefabs/Cards/Card");
         shuffledDeck = deck.ConstructDeck();
-        AddToCardSprites();
+        
         FormDeck();
         DealPlayerCards();
         ShowPlayersHand();
@@ -64,11 +64,6 @@ public class BlackJackManager : MonoBehaviour
         }
     }
 
-    private void GetCardImages()
-    {
-
-    }
-
     public void AddToCardSprites()
     {
         
@@ -82,7 +77,7 @@ public class BlackJackManager : MonoBehaviour
             suitSymbols.Add("Spade", suitImages[0]);
             suitSymbols.Add("Diamond", suitImages[1]);
             suitSymbols.Add("Club", suitImages[2]);
-            suitSymbols.Add("Hearts", suitImages[3]);
+            suitSymbols.Add("Heart", suitImages[3]);
             Debug.Log("Image Array is Populated");
             Debug.Log(suitSymbols.Count);
         }
@@ -98,9 +93,9 @@ public class BlackJackManager : MonoBehaviour
         int faceCardValue;
         int cardsDrawn = 0;
         Debug.Log(1);
-        
+        AddToCardSprites();
 
-        while(cardsDrawn < 52)
+        while (cardsDrawn < 52)
         {
             Card newCardInstance = ScriptableObject.CreateInstance<Card>();
             GameObject newCard = Instantiate(cardObject, new Vector3(0,0,0), Quaternion.identity);
@@ -134,6 +129,7 @@ public class BlackJackManager : MonoBehaviour
 
                 newCardInstance.SetCardValue(faceCardValue);
                 newCardInstance.SetCardSuit(suit);
+                newCardInstance.SetSuitImage(suit);
                 Debug.Log($"Created card - Suit: {newCardInstance.GetSuit()}, Value: {newCardInstance.GetValue()}");
                 cardDeck.Add(newCardInstance);
                 data.SetCardData(newCardInstance);
