@@ -8,7 +8,7 @@ public class BJ_Deck : MonoBehaviour
     [SerializeField] private Dictionary<string,List<string>> deck = new Dictionary<string, List<string>>(); 
 
 
-    // Start is called before the first frame update
+    //this is where the black jack deck is created
     void Start()
     {
         InitializeDeck();

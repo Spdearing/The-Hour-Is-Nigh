@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -64,40 +65,36 @@ public class BlackJackManager : MonoBehaviour
         }
     }
 
-    public void AddToCardSprites()
+    public void AddToCardSprites(Dictionary<string, Sprite> suits)
     {
-        
+        //Get card images
         Sprite[] suitImages = Resources.LoadAll<Sprite>("Images/Suit Images"); // Correct path and type
-        suitSymbols = card.DeckImages(); //get card from the scriptable object
-        Debug.Log(suitImages.Length);
 
         if (suitImages.Length >= 4)
         {
-            Debug.Log("Populating Image Array");
-            suitSymbols.Add("Spade", suitImages[0]);
-            suitSymbols.Add("Diamond", suitImages[1]);
-            suitSymbols.Add("Club", suitImages[2]);
-            suitSymbols.Add("Heart", suitImages[3]);
-            Debug.Log("Image Array is Populated");
-            Debug.Log(suitSymbols.Count);
+            suits.Add("Heart", suitImages[3]);
+            suits.Add("Spade", suitImages[2]);
+            suits.Add("Diamond", suitImages[1]);
+            suits.Add("Club", suitImages[0]);
         }
         else
         {
             Debug.LogWarning("Not enough sprites loaded from Suit Images.png!");
         }
-        Debug.Log(3);
     }
 
     public void FormDeck()
     {
         int faceCardValue;
         int cardsDrawn = 0;
-        Debug.Log(1);
-        AddToCardSprites();
+       
 
-        while (cardsDrawn < 52)
+
+        while (cardsDrawn < 52)//As long as the cardsDrawn is under 52 it will make a deck
         {
+            
             Card newCardInstance = ScriptableObject.CreateInstance<Card>();
+            AddToCardSprites(newCardInstance.DeckImages());
             GameObject newCard = Instantiate(cardObject, new Vector3(0,0,0), Quaternion.identity);
             CardData data = newCard.GetComponent<CardData>();
             int randomSuit = UnityEngine.Random.Range(0, shuffledDeck.Count);
@@ -130,9 +127,8 @@ public class BlackJackManager : MonoBehaviour
                 newCardInstance.SetCardValue(faceCardValue);
                 newCardInstance.SetCardSuit(suit);
                 newCardInstance.SetSuitImage(suit);
-                Debug.Log($"Created card - Suit: {newCardInstance.GetSuit()}, Value: {newCardInstance.GetValue()}");
-                cardDeck.Add(newCardInstance);
                 data.SetCardData(newCardInstance);
+                cardDeck.Add(newCardInstance);
                 ranks.Add(faceCardValue);
                 suits.Add(suit);
                 shuffledDeck[suit].Remove(value);
@@ -159,21 +155,12 @@ public class BlackJackManager : MonoBehaviour
 
     public void DealPlayerCards()
     {
-        Debug.Log(2);
+
         for (int i = 0; i < 2; i++)
         {
             if (cardDeck.Count > 0)
             {
                 Card drawnCard = cardDeck[0];
-                playerHand.InitialHand(drawnCard.GetSuit(), drawnCard.GetValue());
-                Debug.Log($"Dealt: {drawnCard.GetSuit()} {drawnCard.GetValue()}");
-
-                // Display card image (if needed)
-                if (suitSymbols.TryGetValue(drawnCard.GetSuit(), out Sprite suitSprite))
-                {
-                    card.SetSuitImage(drawnCard.GetSuit());
-                    Debug.Log("card image should be " + drawnCard.GetSuit());
-                }
 
                 cardDeck.RemoveAt(0);
             }
@@ -184,8 +171,6 @@ public class BlackJackManager : MonoBehaviour
     {
         List<Tuple<string,int>> playersCards;
         playersCards = playerHand.GetPlayersHand();
-        Debug.Log(playersCards[0]);
-        Debug.Log(playersCards[1]);
     }
 
 

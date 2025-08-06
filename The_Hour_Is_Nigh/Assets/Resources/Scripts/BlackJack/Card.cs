@@ -39,7 +39,7 @@ public class Card : ScriptableObject
 
     public void SetSuitImage(string suit)
     {
-        suitImage = deckImages[suit];    
+        suitImage = deckImages[suit]; 
     }
 
     public Sprite ReturnSuitImage()

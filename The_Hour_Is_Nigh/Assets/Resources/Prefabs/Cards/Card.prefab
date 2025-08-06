@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 4097417842232333638}
   - component: {fileID: 4848358785338271507}
   m_Layer: 5
-  m_Name: SuitImage
+  m_Name: SuitImage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 5720603800259712126}
   - component: {fileID: 1473688017799359535}
   m_Layer: 5
-  m_Name: SuitImage
+  m_Name: SuitImage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,10 +643,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 0}
+  cardObject: {fileID: 0}
   value: 0
   suit: 
   suitSprite: {fileID: 0}
   suitImage: {fileID: 0}
+  suitImage2: {fileID: 0}
   rankImage1: {fileID: 0}
   rankImage2: {fileID: 0}
   blackJackManager: {fileID: 0}
