@@ -6,8 +6,7 @@ using UnityEngine;
 public class PlayersHand
 {
     [SerializeField] private List<Tuple<string, int>> playersCards = new List<Tuple<string, int>>();
-    private BlackJackManager blackJackManager = GameObject.Find("BlackJackManager").GetComponent<BlackJackManager>();
-    private int handValue;
+    [SerializeField] private int handValue;
 
     public int GetHandValue()
     {
@@ -22,23 +21,33 @@ public class PlayersHand
     public void InitialHand(string suit, int cardValue)
     {
         playersCards.Add(new Tuple<string, int>(suit, cardValue));
-        blackJackManager.RemoveDeltCardsFromLists();
+        BlackJackManager.Instance.RemoveDeltCardsFromLists();
     }
 
     public void Hit(string suit, int cardValue)
     {
         playersCards.Add(new Tuple<string, int>(suit, cardValue));
-        blackJackManager.DealPlayerCards();
-        
+        BlackJackManager.Instance.DealPlayerCards();   
+    }
+    public void Stay()
+    {
+        CalculateScore();
     }
 
     public int CalculateScore()
     {
         handValue = 0;
+
+        Debug.Log($"Number of cards in hand: {playersCards.Count}");
+
         foreach (var card in playersCards)
         {
             handValue += card.Item2;
+            Debug.Log("card item 1 " + card.Item1);
+            Debug.Log("card item 2 " + card.Item2);
         }
+        Debug.Log(handValue);
         return handValue;
+        
     }
 }

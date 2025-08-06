@@ -33,7 +33,7 @@ public class BlackJackManager : MonoBehaviour
     void Start()
     {
         cardDeck = new List<Card>();
-        card = ScriptableObject.CreateInstance<Card>(); 
+        card = ScriptableObject.CreateInstance<Card>();
         playerHand = new PlayersHand();
         dealer = new Dealer();
         deck = GameObject.Find("Deck").GetComponent<BJ_Deck>();
@@ -44,13 +44,6 @@ public class BlackJackManager : MonoBehaviour
         DealPlayerCards();
         ShowPlayersHand();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     void Awake()
     {
@@ -88,8 +81,6 @@ public class BlackJackManager : MonoBehaviour
         int faceCardValue;
         int cardsDrawn = 0;
        
-
-
         while (cardsDrawn < 52)//As long as the cardsDrawn is under 52 it will make a deck
         {
             
@@ -149,8 +140,7 @@ public class BlackJackManager : MonoBehaviour
 
     public void DealRandomCard()
     {
-        Card topCard = cardDeck[0];
-        playerHand.InitialHand(topCard.GetSuit(), topCard.GetValue());
+        playerHand.InitialHand(cardDeck[0].GetSuit(), cardDeck[0].GetValue());
     }
 
     public void DealPlayerCards()
@@ -160,7 +150,8 @@ public class BlackJackManager : MonoBehaviour
         {
             if (cardDeck.Count > 0)
             {
-                Card drawnCard = cardDeck[0];
+                List<Tuple<string, int>> playersCards = playerHand.GetPlayersHand();
+                playersCards.Add(new Tuple<string, int>(cardDeck[0].GetSuit(), cardDeck[0].GetValue()));
 
                 cardDeck.RemoveAt(0);
             }
@@ -186,9 +177,15 @@ public class BlackJackManager : MonoBehaviour
 
     public Card GetPlayingCard()
     {
-     
             return this.playingCard; 
-        
+    }
+    public List<Tuple<string,int>> ReturnPlayersHand()
+    {
+        return this.playerHand.GetPlayersHand();
+    }
+    public PlayersHand ReturnPlayerHandInstance()
+    {
+        return this.playerHand;
     }
 }
 
