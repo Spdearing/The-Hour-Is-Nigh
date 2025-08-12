@@ -20,16 +20,20 @@ public class PlayerActions : MonoBehaviour
     void Update()
     {
          TestCalculate();
+         Hit();
     }
 
     public void Hit()
     {
-        
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            BlackJackManager.Instance.DealRandomCard();
+        }
     }
 
     public void TestCalculate()
     {
-        if ((Input.GetKey(KeyCode.C)))
+        if ((Input.GetKeyUp(KeyCode.C)))
         {
             playerHand.CalculateScore();
             handValue = playerHand.GetHandValue();

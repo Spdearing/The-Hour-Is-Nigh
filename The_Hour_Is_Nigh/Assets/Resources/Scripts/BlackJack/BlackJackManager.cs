@@ -140,7 +140,7 @@ public class BlackJackManager : MonoBehaviour
 
     public void DealRandomCard()
     {
-        playerHand.InitialHand(cardDeck[0].GetSuit(), cardDeck[0].GetValue());
+        playerHand.Hit(cardDeck[0].GetSuit(), cardDeck[0].GetValue());
     }
 
     public void DealPlayerCards()
