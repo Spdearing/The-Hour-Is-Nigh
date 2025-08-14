@@ -26,8 +26,9 @@ public class RyansPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //player faces where camera is pointing
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, cameratransform.eulerAngles.y, transform.eulerAngles.z);
+        transform.rotation = Quaternion.Euler(0, cameratransform.eulerAngles.y, 0);
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");

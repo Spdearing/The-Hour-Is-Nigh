@@ -28,8 +28,6 @@ public class FirstPersonCamera : MonoBehaviour
 
         transform.eulerAngles = new Vector3(_pitch, _yaw, 0);
 
-        player.GetComponent<Transform>().rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
-
         //camera stays with player but is not child of player
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y + .6f, player.transform.position.z);
     }
