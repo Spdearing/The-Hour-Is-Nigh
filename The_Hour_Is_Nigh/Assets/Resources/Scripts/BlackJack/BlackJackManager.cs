@@ -28,10 +28,18 @@ public class BlackJackManager : MonoBehaviour
     [SerializeField] private List<string> suits;
     [SerializeField] private List<Card> cardDeck;
 
+    [Header("Transforms")]
+    [SerializeField] private Transform deckLocation;
+    [SerializeField] private Transform playersHandLocation;
+    [SerializeField] private Transform dealersHandLocation;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        deckLocation = GameObject.Find("DeckLocation").GetComponent<Transform>();
+        playersHandLocation = GameObject.Find("PlayersHandLocation").GetComponent<Transform>();
+        dealersHandLocation = GameObject.Find("DealersHandLocation").GetComponent<Transform>();
         cardDeck = new List<Card>();
         card = ScriptableObject.CreateInstance<Card>();
         playerHand = new PlayersHand();
@@ -86,7 +94,7 @@ public class BlackJackManager : MonoBehaviour
             
             Card newCardInstance = ScriptableObject.CreateInstance<Card>();
             AddToCardSprites(newCardInstance.DeckImages());
-            GameObject newCard = Instantiate(cardObject, new Vector3(0,0,0), Quaternion.identity);
+            GameObject newCard = Instantiate(cardObject, deckLocation.position, Quaternion.identity);
             CardData data = newCard.GetComponent<CardData>();
             int randomSuit = UnityEngine.Random.Range(0, shuffledDeck.Count);
             
