@@ -26,6 +26,7 @@ public class BlackJackManager : MonoBehaviour
     [Header("Card Lists")]
     [SerializeField] private List<int> ranks;
     [SerializeField] private List<string> suits;
+    [SerializeField] private List<GameObject> playingCards;
     [SerializeField] private List<Card> cardDeck;
 
     [Header("Transforms")]
@@ -45,9 +46,11 @@ public class BlackJackManager : MonoBehaviour
         playerHand = new PlayersHand();
         dealer = new Dealer();
         deck = GameObject.Find("Deck").GetComponent<BJ_Deck>();
+        playingCards = new List<GameObject>();
         cardObject = Resources.Load<GameObject>("Prefabs/Cards/Card");
         shuffledDeck = deck.ConstructDeck();
-        
+
+        GetAllPlayingCards();  
         FormDeck();
         DealPlayerCards();
         ShowPlayersHand();
@@ -64,6 +67,11 @@ public class BlackJackManager : MonoBehaviour
             Debug.LogWarning("Multiple instances of BlackJackManager detected. Destroying duplicate.");
             Destroy(gameObject);
         }
+    }
+
+    private void GetAllPlayingCards()
+    {
+        GameObject[] cards = Resources.LoadAll<UnityEngine.GameObject>("Prefabs/Cards/Deck01");
     }
 
     public void AddToCardSprites(Dictionary<string, Sprite> suits)
