@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using Unity.Collections.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -71,7 +72,33 @@ public class BlackJackManager : MonoBehaviour
 
     private void GetAllPlayingCards()
     {
-        GameObject[] cards = Resources.LoadAll<UnityEngine.GameObject>("Prefabs/Cards/Deck01");
+        GameObject[] cards = Resources.LoadAll<GameObject>("Prefabs/Cards/Deck01");
+
+        for (int i = 0; i < cards.Length; i++)
+        {
+            if (cards[i].GetComponent<CardData>() == null)
+            {
+                GameObject cardInstance = Instantiate(cards[i], deckLocation.position, Quaternion.identity);
+                cardInstance.AddComponent<CardData>();
+                playingCards.Add(cardInstance);
+                
+            }
+            else
+            {
+                RemoveAllInstancesOfScript<CardData>(cards[i]);
+                i--;
+            }
+        }
+    }
+
+    void RemoveAllInstancesOfScript<Script>(GameObject go) where Script : MonoBehaviour
+    {
+        Script[] scriptsToRemove = go.GetComponents<Script>();
+
+        foreach (Script scriptInstance in scriptsToRemove)
+        {
+            DestroyImmediate(scriptInstance, true);
+        }
     }
 
     public void AddToCardSprites(Dictionary<string, Sprite> suits)
@@ -102,8 +129,8 @@ public class BlackJackManager : MonoBehaviour
             
             Card newCardInstance = ScriptableObject.CreateInstance<Card>();
             AddToCardSprites(newCardInstance.DeckImages());
-            GameObject newCard = Instantiate(cardObject, deckLocation.position, Quaternion.identity);
-            CardData data = newCard.GetComponent<CardData>();
+            //GameObject newCard = Instantiate(cardObject, deckLocation.position, Quaternion.identity);
+            //CardData data = newCard.GetComponent<CardData>();
             int randomSuit = UnityEngine.Random.Range(0, shuffledDeck.Count);
             
             var dictionaryKey = shuffledDeck.ElementAt(randomSuit);
@@ -134,7 +161,7 @@ public class BlackJackManager : MonoBehaviour
                 newCardInstance.SetCardValue(faceCardValue);
                 newCardInstance.SetCardSuit(suit);
                 newCardInstance.SetSuitImage(suit);
-                data.SetCardData(newCardInstance);
+                //data.SetCardData(newCardInstance);
                 cardDeck.Add(newCardInstance);
                 ranks.Add(faceCardValue);
                 suits.Add(suit);
