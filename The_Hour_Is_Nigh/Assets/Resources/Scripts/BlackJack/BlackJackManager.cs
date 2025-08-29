@@ -78,8 +78,10 @@ public class BlackJackManager : MonoBehaviour
         {
             if (cards[i].GetComponent<CardData>() == null)
             {
-                GameObject cardInstance = Instantiate(cards[i], deckLocation.position, Quaternion.identity);
+                GameObject cardInstance = Instantiate(cards[i], deckLocation.position, Quaternion.Euler(90,0,0));
                 cardInstance.AddComponent<CardData>();
+                //cardInstance.AddComponent<Rigidbody>();
+                //cardInstance.AddComponent<BoxCollider>();
                 playingCards.Add(cardInstance);
                 
             }
@@ -88,6 +90,9 @@ public class BlackJackManager : MonoBehaviour
                 RemoveAllInstancesOfScript<CardData>(cards[i]);
                 i--;
             }
+            var newYPosition = deckLocation.transform.position.y;
+            newYPosition += .01f;
+            deckLocation.position = new Vector3(deckLocation.position.x, newYPosition, deckLocation.position.z);
         }
     }
 
