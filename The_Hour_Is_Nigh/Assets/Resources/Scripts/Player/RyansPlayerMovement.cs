@@ -35,6 +35,16 @@ public class RyansPlayerMovement : MonoBehaviour
 
         Vector3 moveDirection = new Vector3(horizontalInput, 0f, verticalInput);
 
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            moveSpeed = sprintSpeed;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            moveSpeed = walkSpeed;
+        }
+
+
         //if magnitude is greater than 1 normalize it so there is not always a delay when stopping player
         if (moveDirection.magnitude > 1)
         {
